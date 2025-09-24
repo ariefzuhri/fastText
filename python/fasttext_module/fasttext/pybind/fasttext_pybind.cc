@@ -20,6 +20,12 @@
 #include <sstream>
 #include <stdexcept>
 
+#ifdef _MSC_VER
+// ssize_t is not defined by MSVC, define it for compatibility
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif
+
 using namespace pybind11::literals;
 namespace py = pybind11;
 
